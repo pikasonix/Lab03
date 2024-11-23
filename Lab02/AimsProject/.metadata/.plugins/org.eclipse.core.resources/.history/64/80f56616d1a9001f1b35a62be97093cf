@@ -18,9 +18,7 @@ public class Aims {
 
 		//print total cost of the items in the cart 
 		System.out.printf("Total Cost is: ");
-		System.out.printf("%.2f \n", anOrder.totalCost()); 
-		
-		// cart lab 3 (6)
+		System.out.printf("%.2f /n", anOrder.totalCost()); 
 		anOrder.printOrdered(); 
 	}
 }
