@@ -28,6 +28,17 @@ public class Cart {
         }
     }
     
+	public void addDigitalVideoDisc(DigitalVideoDisc [] divList) {
+		for (DigitalVideoDisc item:divList) {
+			addDigitalVideoDisc(item);
+		}
+	} 
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
+		addDigitalVideoDisc(disc1);
+		addDigitalVideoDisc(disc2);
+	}
+    
     public float totalCost() {
         float total = 0.0f;
         for (int i = 0; i < qtyOrdered; i++) {
