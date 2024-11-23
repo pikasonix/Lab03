@@ -11,12 +11,12 @@ public class TestPassingParameter {
 		changeTitle(jungleDVD, cinderellaDVD.getTitle());
 		System.out.println("jungle dvd title: " + jungleDVD.getTitle());
 	}
-		public static void swap(Object o1, Object o2) {
+	public static void swap(Object o1, Object o2) {
 		Object tmp = 01;
 		o1 = o2;
 		o2 = tmp;
-		}
-		public static void changeTitle (DigitalVideoDisc dvd, String title) {
+	}
+	public static void changeTitle (DigitalVideoDisc dvd, String title) {
 		String oldTitle = dvd.getTitle(); 
 		dvd.setTitle(title);
 		dvd = new DigitalVideoDisc(oldTitle);
