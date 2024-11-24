@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
@@ -47,14 +48,44 @@ public class Cart {
         return total;
     }
     
-    public void printOrdered() {
+    public void print() {
     	System.out.println("***********************CART***********************");
     	System.out.println("Ordered Items:");
     	for (int i = 0; i < qtyOrdered; i++) {
-    		System.out.println(i+1 + ". DVD - " + itemsOrdered[i].getTitle() + " - " + itemsOrdered[i].getCategory() + " - " + itemsOrdered[i].getDirector() + " - " + itemsOrdered[i].getLength() + ": " + itemsOrdered[i].getCost() + "$");
+    		System.out.println(i+1 + itemsOrdered[i].toString());  
     	}
     	System.out.printf("Total cost: %.2f\n", totalCost());
     	System.out.println("***************************************************");
     }
+    
+    public void searchDvdById() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Search by ID: ");
+		int id = scanner.nextInt();
+		for (DigitalVideoDisc dvd: itemsOrdered) {
+			if (dvd != null && dvd.getId() == id) {
+				System.out.println(dvd.getId()+dvd.toString());
+//				scanner.close();
+				return;
+			}
+		}
+		System.out.println("Not found!");
+//		scanner.close();	
+	}
+    
+    public void searchDvdByTitle() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Search by Title: ");
+		String str = scanner.nextLine();
+		boolean found = false;
+		for (DigitalVideoDisc dvd: itemsOrdered) {
+			 if (dvd != null && dvd.isMatch(str)) {
+				System.out.println(dvd.getId()+dvd.toString());
+				found = true;
+			}
+		}
+		if (!found) System.out.println("Not found!");
+//		scanner.close();
+	}
     
 }
