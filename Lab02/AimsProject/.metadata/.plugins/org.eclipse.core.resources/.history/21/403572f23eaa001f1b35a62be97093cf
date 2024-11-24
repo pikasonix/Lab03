@@ -25,13 +25,4 @@ public class Store {
             }
         }
 	}
-	
-	public void print() {
-    	System.out.println("***********************STORE***********************");
-    	System.out.println("Store Items:");
-    	for (int i = 0; i < qtyItemsInStore; i++) {
-    		System.out.println(i+1 + itemsInStore[i].toString());  
-    	}
-    	System.out.println("****************************************************");
-    }
 }

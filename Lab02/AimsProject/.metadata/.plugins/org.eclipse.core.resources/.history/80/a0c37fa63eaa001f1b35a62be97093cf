@@ -20,18 +20,9 @@ public class Store {
                 }
             	--qtyItemsInStore;
                 itemsInStore[qtyItemsInStore] = null;
-                System.out.println("dvd" + (i+1) + " has been removed from Store");
+                System.out.println("dvd" + (i+1) + " has been removed");
                 break;
             }
         }
 	}
-	
-	public void print() {
-    	System.out.println("***********************STORE***********************");
-    	System.out.println("Store Items:");
-    	for (int i = 0; i < qtyItemsInStore; i++) {
-    		System.out.println(i+1 + itemsInStore[i].toString());  
-    	}
-    	System.out.println("****************************************************");
-    }
 }
