@@ -7,5 +7,13 @@ Java có cho phép có nhiều cách tạo constructor cho 1 đối tượng.
 Lab03:
 Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
 
-Java là Pass by Value vì: Với các kiểu dữ liệu nguyên thuỷ thì java sao chrdp giá trị của biến trực tiếp
+Java là Pass by Value vì: Với các kiểu dữ liệu nguyên thuỷ thì java sao chép giá trị của biến trực tiếp
 Với các đối tượng thì java mới sao chép tham chiếu đến đối tượng (lúc này chỉ thay đổi được nội dung đối tượng thông qua tha chiếu chứ không thể thay đổi tham chiếu vì nó chỉ là bản sao) nên không thể coi Java là Pass by Reference.
+
+After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+
+Bởi vì swap() chỉ hoán đổi giá trị của title giữa hai đối tượng, nhưng không thay đổi tham chiếu của đối tượng. Do đó, tham chiếu jungleDVD và cinderellaDVD vẫn trỏ đến cùng đối tượng trong bộ nhớ như trước khi phương thức swap() được gọi.
+
+After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+
+Bởi vì changeTitle() trực tiếp sửa title của jungleDVD thông qua phương thức setter.
