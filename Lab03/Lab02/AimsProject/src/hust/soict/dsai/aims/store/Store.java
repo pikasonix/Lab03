@@ -1,39 +1,44 @@
 package hust.soict.dsai.aims.store;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
+import hust.soict.dsai.aims.media.Media;
+import java.util.ArrayList;
 
 public class Store {
-    public static final int MAX_ITEMS_STORE = 1000;
-    private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[MAX_ITEMS_STORE];
-	
-    private int qtyItemsInStore = 0;
-	public void addDVD(DigitalVideoDisc dvd) {
-		if (qtyItemsInStore < MAX_ITEMS_STORE) {
-			itemsInStore[qtyItemsInStore++] = dvd;
-        	System.out.println("The disc has been added to Store. ID: " + dvd.getId() +" Title: "+ dvd.getTitle());
-        } else {
-            System.out.println("The store is almost full");
+    private ArrayList<Media> itemsInStore = new ArrayList<Media>();
+
+    public void addMedia(Media media) {
+    	if (itemsInStore.contains(media)) {
+        	System.out.println("The media" + media.getTitle() + " has already existed");
+			return;
         }
-	}
-	public void removeDVD(DigitalVideoDisc dvd) {
-        for (int i = 0; i < qtyItemsInStore; i++) {
-            if (itemsInStore[i] == dvd) {
-            	for (int j = i; j < qtyItemsInStore - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-            	--qtyItemsInStore;
-                itemsInStore[qtyItemsInStore] = null;
-                System.out.println("dvd" + (i+1) + " has been removed from Store");
-                break;
-            }
+    	itemsInStore.add(media);
+        System.out.println("The media " + media.getTitle() + " has been added");
+    }
+
+    public void removeMedia(Media media) {
+        if (!itemsInStore.contains(media)) {
+        	System.out.println("The media " + media.getTitle() + " does not exist");
+			return;
         }
-	}
+        itemsInStore.remove(media);
+        System.out.printf("The media " + media.getTitle() + " has been removed");
+    }
 	
 	public void print() {
     	System.out.println("***********************STORE***********************");
     	System.out.println("Store Items:");
-    	for (int i = 0; i < qtyItemsInStore; i++) {
-    		System.out.println(i+1 + itemsInStore[i].toString());  
+    	for (int i = 0; i < itemsInStore.size(); i++) {
+    		System.out.println(i+1 + itemsInStore.get(i).toString());  
     	}
     	System.out.println("****************************************************");
     }
+	
+	public Media search(String title) {
+		for (Media media: itemsInStore) {
+			if (media.getTitle().equals(title)) {
+				return media;
+			}
+		}
+		return null;
+	}
 }

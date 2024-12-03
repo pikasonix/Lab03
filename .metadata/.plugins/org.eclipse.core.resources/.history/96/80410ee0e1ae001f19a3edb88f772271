@@ -1,0 +1,28 @@
+package hust.soict.dsai.aims.media;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Book {
+	private int id;
+	private String title;
+	private String catagory;
+	private float cost;
+	private List<String> authors = new ArrayList<String>();
+	
+	public Book(int id, String title, String category, float cost) {
+		
+	}
+	
+	public void addAuthor(String authorName) {
+		int i = authors.indexOf(authorName);
+		if(i == -1) {
+			System.out.printf("Author %s has already existed", authorName);
+			
+		}
+	}
+	
+	public void removeAuthor(String authorName) {
+		
+	}
+}

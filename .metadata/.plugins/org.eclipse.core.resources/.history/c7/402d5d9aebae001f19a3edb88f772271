@@ -1,0 +1,77 @@
+package hust.soict.dsai.aims.media;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CompactDisc extends Disc implements Playable{
+    private String artist;
+    private ArrayList<Track> tracks = new ArrayList<Track>();
+
+    public CompactDisc(int id, String title, String category, String director, float cost, String artist) {
+        super(id, title, category, cost);
+        this.setDirector(director);
+        this.artist = artist;
+    }
+    public CompactDisc(String title, String category, float cost, String artist) {
+        super(title, category, cost);
+        this.artist = artist;
+    }
+
+    public CompactDisc(String title, String category, float cost, String artist, ArrayList<Track> tracks) {
+        super(title, category, cost);
+        this.artist = artist;
+        this.tracks = tracks;
+    }
+
+    public CompactDisc(String title, String category, String director, int length, float cost, String artist) {
+        super(title, category, director, length, cost);
+        this.artist = artist;
+    }
+
+    public CompactDisc(String title, String category, String director, int length, float cost, String artist, ArrayList<Track> tracks) {
+        super(title, category, director, length, cost);
+        this.artist = artist;
+        this.tracks = tracks;
+    }
+
+
+
+    public String getArtist() {
+        return artist;
+    }
+    
+    public void addTrack(Track track) {
+		if (tracks.contains(track)) {
+			System.out.printf("Track %s has already existed", track);
+			return;
+        }
+		tracks.add(track);
+		System.out.printf("Track %s has added", track);
+	}
+	
+	public void removeTrack(Track track) {
+		if (tracks.contains(track)) {
+			System.out.printf("Track %s has already existed", track);
+			return;
+        }
+		tracks.remove(track);
+		System.out.printf("Track %s has removed", track);
+	}
+	
+	public int getLength() {
+        int length = 0;
+        for (Track track: tracks) {
+            length += track.getLength();
+        }
+        return length;
+    }
+	
+	@Override
+    public void play() {
+        System.out.println("Artist: " + this.artist);
+        System.out.println("List of track");
+        for (Track t : tracks) {
+            t.play();
+        }
+    }s
+}

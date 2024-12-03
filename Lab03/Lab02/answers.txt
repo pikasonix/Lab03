@@ -1,19 +1,37 @@
-Lab02:
-8. If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+Lab04:
+Alternatively, to compare items in the cart, instead of using Comparator, we can use the Comparable interface and override the compareTo()method. You can refer to the Java docs to see the information of this interface. 
+Suppose we are taking this Comparable interface approach.
+-	What class should implement the Comparable interface?
+-> Media class vì đây là class cơ sở cho tất cả các loại media (DVD, Book, CD) và chứa các thuộc tính chung (như title và cost) được sử dụng để so sánh.
 
-Java có cho phép có nhiều cách tạo constructor cho 1 đối tượng.
+-	In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?
+-> Ta sắp xếp theo tiêu đề trước, sau đó theo giá
+@Override
+public int compareTo(Media other) {
+    int titleComparison = this.title.compareToIgnoreCase(other.title); // So sánh tiêu đề theo thứ tự chữ cái
+    if (titleComparison != 0) {
+        return titleComparison; // Trả kết quả nếu tiêu đề khác nhau
+    }
+    return Float.compare(this.cost, other.cost); // So sánh giá nếu tiêu đề giống nhau
+}
 
-====
-Lab03:
-Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
+-	Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?
+-> Không, Comparable interface chỉ cho phép 1 quy tắc sắp xếp vì compareTo() method chỉ có 1. Để có nhiều quy tắc sắp xếp (như theo tiêu đề rồi giá hoặc theo giá rồi tiêu đề) thì cần sử dụng Comparator interface.
 
-Java là Pass by Value vì: Với các kiểu dữ liệu nguyên thuỷ thì java sao chép giá trị của biến trực tiếp
-Với các đối tượng thì java mới sao chép tham chiếu đến đối tượng (lúc này chỉ thay đổi được nội dung đối tượng thông qua tha chiếu chứ không thể thay đổi tham chiếu vì nó chỉ là bản sao) nên không thể coi Java là Pass by Reference.
+-	Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+-> Override compareTo() method trong class DigitalVideoDisc:
 
-After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+@Override
+public int compareTo(Media other) {
+    if (other instanceof DigitalVideoDisc) {
+        DigitalVideoDisc dvd = (DigitalVideoDisc) other;
+        int titleComparison = this.title.compareToIgnoreCase(dvd.title);
+        if (titleComparison != 0) return titleComparison;
 
-Bởi vì swap() chỉ hoán đổi giá trị của title giữa hai đối tượng, nhưng không thay đổi tham chiếu của đối tượng. Do đó, tham chiếu jungleDVD và cinderellaDVD vẫn trỏ đến cùng đối tượng trong bộ nhớ như trước khi phương thức swap() được gọi.
+        int lengthComparison = Integer.compare(dvd.length, this.length); // Chiều dài giảm dần
+        if (lengthComparison != 0) return lengthComparison;
 
-After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
-
-Bởi vì changeTitle() trực tiếp sửa title của jungleDVD thông qua phương thức setter.
+        return Float.compare(this.cost, dvd.cost); // So sánh giá
+    }
+    return super.compareTo(other); // Sử dụng quy tắc của Media cho các loại khác
+}
