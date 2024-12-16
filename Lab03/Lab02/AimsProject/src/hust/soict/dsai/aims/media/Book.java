@@ -4,44 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Book extends Media {
-    private List<String> authors = new ArrayList<String>();
-    
-    public Book(String title) {
-        super(title);
+    private List<String> author = new ArrayList<String>();
+
+    public Book(int id, String title, String category, float cost) {
+        super(id, title, category, cost);
     }
-    
-    public Book(String title, String category) {
-        super(title, category);
-    }
-    
-    public Book(String title, String category, float cost) {
-        super(title, category, cost);
-    }
-    
+
     public List<String> getAuthors() {
-        return authors;
+        return author;
     }
-    
+
     public void addAuthor(String authorName) {
-        if (authors.contains(authorName)) {
-            System.out.println("Author " + authorName +" has already existed");
-            return;
+        if (!author.contains(authorName)) {
+            author.add(authorName);
         }
-        authors.add(authorName);
-        System.out.println("Author " + authorName + " has added");
+        else System.out.println("Fail to add! The authorName is existed");
     }
-    
+
     public void removeAuthor(String authorName) {
-        if (!authors.contains(authorName)) {
-            System.out.println("Author " + authorName + " does not exist");
-            return;
+        if (author.contains(authorName)) {
+            author.remove(authorName);
         }
-        authors.remove(authorName);
-        System.out.println("Author " + authorName + " has removed");
+        else System.out.println("Fail to delete! The authorName is not exist");
     }
-    
+
     @Override
     public String toString() {
-        return ". Book - " + this.getTitle() + " - " + this.getAuthors() + " - " + this.getCategory() + " - " + this.getCost() + "$";
+        return "Book - " + this.getTitle() + " - " + this.getAuthors() + " - " + this.getCategory() + " - " + this.getCost() + "$";
     }
+
+
 }
