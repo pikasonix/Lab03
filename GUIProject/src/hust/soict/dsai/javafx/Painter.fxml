@@ -25,13 +25,8 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0">
                            <children>
-                              	<RadioButton layoutX="18.0" layoutY="5.0" mnemonicParsing="false" text="Pen" 
-             AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="-5.0" 
-             fx:id="penRadioButton" toggleGroup="$toolToggleGroup" selected="true" />
-				<RadioButton layoutX="9.0" layoutY="19.0" mnemonicParsing="false" text="Eraser" 
-             AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="20.0" 
-             fx:id="eraserRadioButton" toggleGroup="$toolToggleGroup" />
-
+                              <RadioButton layoutX="18.0" layoutY="5.0" mnemonicParsing="false" text="Pen" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="-5.0" fx:id="penRadioButton"/>
+                              <RadioButton layoutX="9.0" layoutY="19.0" mnemonicParsing="false" text="Eraser" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="20.0" fx:id="eraserRadioButton"/>
                            </children>
                         </AnchorPane>
                     </content>
