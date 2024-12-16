@@ -20,8 +20,11 @@ public class PainterController {
     @FXML
     private RadioButton eraserRadioButton;
 
-    @FXML
-    private ToggleGroup toolToggleGroup;
+    private ToggleGroup toolToggleGroup; 
+
+    public PainterController() {
+        toolToggleGroup = new ToggleGroup();
+    }
 
     @FXML
     void clearButtonPressed(ActionEvent event) {
@@ -33,8 +36,17 @@ public class PainterController {
         // Kiểm tra xem Pen hay Eraser được chọn
         Color color = penRadioButton.isSelected() ? Color.BLACK : Color.WHITE;
         
-        // Vẽ theo màu đã chọn
         Circle newCircle = new Circle(event.getX(), event.getY(), 4, color);
         drawingAreaPane.getChildren().add(newCircle);
+    }
+
+    @FXML
+    public void initialize() {
+        // Gán ToggleGroup cho các RadioButton
+        penRadioButton.setToggleGroup(toolToggleGroup);
+        eraserRadioButton.setToggleGroup(toolToggleGroup);
+
+        // default Pen
+        penRadioButton.setSelected(true);
     }
 }
