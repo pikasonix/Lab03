@@ -30,6 +30,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Admin\Downloads\OOP.DSAI.20222.20214907.Le-Trung-Kien-main"/>
 			<item value="D:\CODE\Java\Lab03"/>
 		</list>
 		<section name="SmartImportWizard.dialogBounds">
