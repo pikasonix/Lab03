@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Add CD" textFill="#692b2b">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Option">
+                  <items>
+                        <Menu mnemonicParsing="false" text="Update Store">
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#addBookPressed" text="Add Book" />
+                              <MenuItem mnemonicParsing="false" text="Add CD" />
+                              <MenuItem mnemonicParsing="false" onAction="#addDVDPressed" text="Add DVD" />
+                          </items>
+                        </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#viewStorePressed" text="View Store" />
+                        <MenuItem mnemonicParsing="false" onAction="#viewCartPressed" text="View Cart" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.20001220703125" minWidth="10.0" prefWidth="74.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.79998779296875" minWidth="10.0" prefWidth="226.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="ID" />
+                  <Label text="Title" GridPane.rowIndex="1" />
+                  <Label text="Category" GridPane.rowIndex="2" />
+                  <Label text="Cost" GridPane.rowIndex="3" />
+                  <Label text="Director" GridPane.rowIndex="4" />
+                  <Label text="Artist" GridPane.rowIndex="5" />
+                  <TextField fx:id="tfCDId" maxWidth="-Infinity" GridPane.columnIndex="1" />
+                  <TextField fx:id="tfCDTitle" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="tfCDCategory" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="tfCDCost" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="tfCDDirector" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="tfCDArtist" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+            </GridPane>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <TableView fx:id="tblTrack" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="colTrackTitle" prefWidth="149.5999755859375" text="Title" />
+                      <TableColumn fx:id="colTrackLength" prefWidth="149.60003662109375" text="Length" />
+                    </columns>
+                  </TableView>
+                  <GridPane prefHeight="70.0" prefWidth="300.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.800048828125" minWidth="10.0" prefWidth="56.4000244140625" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.39996337890625" minWidth="10.0" prefWidth="243.5999755859375" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Title" />
+                        <Label text="Length" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfTrackTitle" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="1" />
+                        <TextField fx:id="tfTrackLength" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                      <Button fx:id="btnAddTrack" mnemonicParsing="false" onAction="#btnAddTrackPressed" text="Add Track" />
+                    </buttons>
+                  </ButtonBar>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </GridPane>
+   </center>
+   <bottom>
+      <Button fx:id="btnAdd" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddPressed" text="Add to Store" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

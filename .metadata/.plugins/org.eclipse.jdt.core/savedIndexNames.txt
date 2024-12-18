@@ -1,10 +1,10 @@
 INDEX VERSION 1.134+D:\CODE\Java\Lab03\.metadata\.plugins\org.eclipse.jdt.core
 3962426996.index
-1464182320.index
-158551806.index
-2922093605.index
 1865797976.index
 2598152.index
+158551806.index
+1464182320.index
+2922093605.index
 3184491376.index
 1401107734.index
 372246821.index
@@ -16,7 +16,6 @@ INDEX VERSION 1.134+D:\CODE\Java\Lab03\.metadata\.plugins\org.eclipse.jdt.core
 1069719889.index
 2865367997.index
 1002677649.index
-2924161555.index
 859397209.index
 2730459363.index
 476755445.index
